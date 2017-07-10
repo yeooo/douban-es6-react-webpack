@@ -2,9 +2,27 @@ require('../styles/views/home.scss');
 
 import React from 'react';
 
-//快捷链接数据
-let quickDatas = require('json!../data/quikData.json');
+//数据
+let quickDatas = require('json!../data/quikData.json'),
+    feedsDatas = require('json!../data/recommend_feeds.json');
+/**
+ * 对首页列表数据重造
+ */
+feedsDatas = ((feedsDatasAtrr) => {
+	for (let i = 0, j = feedsDatasAtrr.length; i < j; i++) {
+		let singleFeedsDatas = feedsDatasAtrr[i];
 
+		singleFeedsDatas.cover_url = {
+            background:'url(' + singleFeedsDatas.cover_url +') center center / cover no-repeat rgb(250, 250, 250)',
+            position:'relative'
+        }
+
+		feedsDatasAtrr[i] = singleFeedsDatas;
+	}
+
+	return feedsDatasAtrr;
+
+})(feedsDatas);
 /**
  * 快捷链接组件
  */
@@ -40,65 +58,44 @@ class QuikNav extends React.Component{
 /**
  * 首页文章单个列表组件
  */
-// class InfoList extends React.Component{
-//     render(){
-//         return(
-//             <a className = "feed-item">
-//                 <div className = "feed-content">
-//                     <div className = "cover" style={this.props.data.cover}>
-//                         <div style="padding-top: '100%'"></div>
-//                     </div>
-//                     <h3>{this.props.data.feedTitle}</h3>
-//                     <p>{this.props.data.feedDetail}</p>
-//                 </div>
-//                 <div className="author">
-//                     {/*<!-- react-text: 11 -->*/}
-//                     by&nbsp;
-//                     {/*<!-- /react-text -->*/}
-//                     <span class="name">{this.props.data.author}</span>
-//                 </div>
-//                 <span class="feed-label">{this.props.data.kind}</span>
-//             </a>
-//         )
-//     }
-// }
+class InfoList extends React.Component{
+    render(){
+        return(
+            <a className = "feed-item">
+                <div className = "feed-content">
+                    {/*<div className = "cover" style={{background:'url('+ this.props.data.cover_url+')'}}>*/}
+                    <div className = "cover" style = {this.props.data.cover_url}>
+                        {/*<div style = { this.props.data.cover_url ? " paddingTop: '100%' " : ""}></div>*/}
+                    </div>
+                    <h3>{this.props.data.title}</h3>
+                    <p>{this.props.data.desc}</p>
+                </div>
+                <div className="author">
+                    {/*<!-- react-text: 11 -->*/}
+                    by&nbsp;
+                    {/*<!-- /react-text -->*/}
+                    <span className="name">{this.props.data.name}</span>
+                </div>
+                <span className="feed-label">{this.props.data.source_cn}</span>
+            </a>
+        )
+    }
+}
 
 /**
  * 首页文章容器组件
  */
 class InfoListContainer extends React.Component{
     render(){
+        let InfoListFigurges = [];
+        feedsDatas.forEach((value,index)=>{
+            InfoListFigurges.push(<InfoList data={value} key={index}/>);
+        });
+
         return(
             <div>
                 <div className="feed-section">
-                    <a className = "feed-item">
-                        <div className = "feed-content">
-                            <div className = "cover">
-                                <div style={{paddingTop: '100%'}}></div>
-                            </div>
-                            <h3>今晚我有空 | 这部讲述三十岁女性的电影，绝对是今年港片的一个惊喜</h3>
-                            <p>下班之后，睡觉以前，让好电影与你相伴。女性题材影片《29+1》，成为今年港片惊喜之作。最值得推荐的影视内容，都在这里了！</p>
-                        </div>
-                        <div className = "author">
-                            by&nbsp;
-                            <span className="name">豆瓣电影</span>
-                        </div>
-                        <span className="feed-label">来自栏目 今晚我有空</span>
-                    </a>
-                    <a className = "feed-item">
-                        <div className = "feed-content">
-                            <div className = "cover">
-                                <div style={{paddingTop: '100%'}}></div>
-                            </div>
-                            <h3>今晚我有空 | 这部讲述三十岁女性的电影，绝对是今年港片的一个惊喜</h3>
-                            <p>下班之后，睡觉以前，让好电影与你相伴。女性题材影片《29+1》，成为今年港片惊喜之作。最值得推荐的影视内容，都在这里了！</p>
-                        </div>
-                        <div className = "author">
-                            by&nbsp;
-                            <span className="name">豆瓣电影</span>
-                        </div>
-                        <span className="feed-label">来自栏目 今晚我有空</span>
-                    </a>
+                    {InfoListFigurges}
                 </div>
             </div>
         )
