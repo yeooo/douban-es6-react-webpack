@@ -1,0 +1,26 @@
+[
+  {
+    "linkUrl": "javascript:;",
+    "linkColor": "rgb(35, 132, 232)",
+    "strongText": "电影",
+    "spanText":"影院热映"
+  },
+  {
+    "linkUrl": "javascript:;",
+    "linkColor": "rgb(230, 70, 126)",
+    "strongText": "同城",
+    "spanText":"周末活动"
+  },
+  {
+    "linkUrl": "javascript:;",
+    "linkColor": "rgb(159, 120, 96)",
+    "strongText": "阅读",
+    "spanText":"电子书"
+  },
+  {
+    "linkUrl": "javascript:;",
+    "linkColor": "rgb(225, 100, 77)",
+    "strongText": "东西",
+    "spanText":"心爱之物"
+  }
+]

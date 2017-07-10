@@ -11,13 +11,14 @@ import React from 'react';
  * 引入组件
  */
 import Nav from '../components/Nav';
+import Home from '../views/home';
 
 class AppComponent extends React.Component {
   render(){
 		return (
 			<div>
 				<Nav/>
-				{/*<ReactList />*/}
+				<Home />
 			</div>
 			)
 	}

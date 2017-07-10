@@ -1,26 +1,38 @@
 require('../styles/components/Nav.scss');
 
 import React from 'react';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 import SearchPannel from '../views/search';
 
 class Nav extends React.Component{
     constructor(props) {
         super(props);
         this.showResearchPannel = this.showResearchPannel.bind(this);
+        this.cancelSearchPannel = this.cancelSearchPannel.bind(this);
         this.state = {
             showPannel : '',
         }
     }
-    //搜索按钮--点击显示搜索面板组件
+    /**
+     * 搜索按钮--点击显示搜索面板组件
+     */
     showResearchPannel(e){
-        e.stopPropagation();
-		e.preventDefault();
         this.setState({
             showPannel : 'show-pannel',
         });
+        e.stopPropagation();
+		e.preventDefault();
     }
-
+    /**
+     * 隐藏搜索面板
+     */
+    cancelSearchPannel(e){
+        this.setState({
+            showPannel : '',
+        });
+        e.stopPropagation();
+        e.preventDefault();
+    }
     render(){
         return(
             <div>
@@ -38,7 +50,7 @@ class Nav extends React.Component{
                         </nav>
                     </div>
                 </header>
-                <SearchPannel showPannelClass={ this.state.showPannel }/>
+                <SearchPannel showPannelClass={ this.state.showPannel } cancelSearchPannel = {this.cancelSearchPannel}/>
             </div>
     )}
 }
