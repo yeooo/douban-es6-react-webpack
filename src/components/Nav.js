@@ -1,7 +1,7 @@
 require('../styles/components/Nav.scss');
 
 import React from 'react';
-// import ReactDOM from 'react-dom';
+import { HashRouter as Router, Link } from 'react-router-dom';
 import SearchPannel from '../views/search';
 
 class Nav extends React.Component{
@@ -45,6 +45,10 @@ class Nav extends React.Component{
                                 <li><a href="javascript:;" style={{color: '#9F7860'}}>图书</a></li>
                                 <li><a href="javascript:;" style={{color: '#E4A813'}}>广播</a></li>
                                 <li><a href="javascript:;" style={{color: '#2AB8CC'}}>小组</a></li>
+                                {/*<li><Link to ="/MyMovie" style={{color: '#2384E8'}}>电影</Link></li>*/}
+                                {/*<li><Link to = "/search" style={{color: '#9F7860'}}>图书</Link></li>
+                                <li><Link to = "/search" style={{color: '#E4A813'}}>广播</Link></li>
+                                <li><Link to = "/search" style={{color: '#2AB8CC'}}>小组</Link></li>*/}
                                 <span onClick={ this.showResearchPannel }></span>
                             </ul>
                         </nav>

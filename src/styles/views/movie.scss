@@ -1,0 +1,96 @@
+section {
+    margin: 0;
+    overflow: hidden;
+    background-color: #fff;
+    &:first-child {
+        padding-top: 10px;
+    }
+    header {
+        padding: 0 1.12rem;
+        a {
+            float: right;
+            font-size: .9rem;
+            line-height: 1.5rem;
+        }
+    }
+    h2 {
+        display: inline-block;
+        min-width: 4em;
+        margin-bottom: 0;
+        font-size: 18px;
+        color: #111;
+        padding-left: 0;
+        padding-bottom: 0;
+        font-size: 1.06rem;
+    }
+    .section-content {
+        margin-bottom: -1.12rem;
+    }
+}
+.item__movie{
+    .item-title {
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        word-wrap: normal;
+    }
+}
+.items {
+    font-size: 0;
+    white-space: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    &:first-child {
+        margin-left: 1.12rem;
+    }
+    a {
+        color: #111;
+    }
+    .item-poster {
+        width: 100%;
+        overflow: hidden;
+        background-size: cover;
+        background-position: center;
+    }
+}
+.row {
+    border-bottom: 1px solid #F2F2F2;
+    padding: 15px 0 43px 0;
+}
+.item-title {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-top: .6rem;
+    line-height: .94rem;
+}
+.item-rating {
+    color: #aaa;
+    line-height: .94rem;
+    margin-top: .3rem;
+    font-size: .72rem;
+    .rating-stars {
+        display: inline-block;
+        vertical-align: middle;
+        .rating-star {
+            display: inline-block;
+            margin-right: 1px;
+            background-color: transparent;
+            background-repeat: no-repeat;
+        }
+        .rating-star-small-full {
+            width: 10px;
+            height: 10px;
+            background-size: 10px 10px;
+            background-image: url('../../images/movie/star.png');
+        }
+        .rating-star-small-gray {
+            width: 10px;
+            height: 10px;
+            background-size: 10px 10px;
+            background-image: url('../../images/movie/gray.png');
+        }
+    }
+}

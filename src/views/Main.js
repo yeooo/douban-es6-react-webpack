@@ -1,34 +1,47 @@
 require('../lib/css/base.css');
 require('../lib/js/initFontSize.min.js');
-// let container = document.getElementById('app');
 
 /**
  * 引入模块
  */
 import React from 'react';
-// import ReactList from '../router/router';
+import { Route, HashRouter as Router } from 'react-router-dom'
+import createHistory from 'history/createHashHistory'
+const history = createHistory()
+
 /**
  * 引入组件
  */
 import Nav from '../components/Nav';
 import Home from '../views/home';
+import MyIndex from '../views/home';
+import MyMovie from '../views/Movie';
+import MyBook from '../views/book';
+import MyNetwork from '../views/network';
+import MyGroup from '../views/group';
 
 class AppComponent extends React.Component {
-  render(){
+  	render(){
 		return (
 			<div>
 				<Nav/>
-				<Home />
+				{/*<Home />*/}
+				<Router history={history}>
+					<Route render={({ location }) => {
+						return(
+							<div key={location.pathname}>
+								<Route location={location} exact path="/" component={MyIndex} />
+								<Route location={location} path="/MyMovie" component={MyMovie} />
+								<Route location={location} path="/MyBook" component={MyBook} />
+								<Route location={location} path="/MyNetwork" component={MyNetwork} />
+								<Route location={location} path="/MyGroup" component={MyGroup} />
+							</div>
+						)
+					}}/>
+          		</Router>
 			</div>
 			)
 	}
 }
-
-AppComponent.defaultProps = {
-
-};
-
-// Render the router component into the dom
-// ReactDOM.render(<ReactList />,container);
 
 export default AppComponent;

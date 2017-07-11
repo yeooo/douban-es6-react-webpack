@@ -13,8 +13,9 @@ feedsDatas = ((feedsDatasAtrr) => {
 		let singleFeedsDatas = feedsDatasAtrr[i];
 
 		singleFeedsDatas.cover_url = {
-            background:'url(' + singleFeedsDatas.cover_url +') center center / cover no-repeat rgb(250, 250, 250)',
-            position:'relative'
+            background: 'url(' + singleFeedsDatas.cover_url +') center center / cover no-repeat rgb(250, 250, 250)',
+            position: 'relative',
+            isPic: singleFeedsDatas.cover_url
         }
 
 		feedsDatasAtrr[i] = singleFeedsDatas;
@@ -63,18 +64,14 @@ class InfoList extends React.Component{
         return(
             <a className = "feed-item">
                 <div className = "feed-content">
-                    {/*<div className = "cover" style={{background:'url('+ this.props.data.cover_url+')'}}>*/}
                     <div className = "cover" style = {this.props.data.cover_url}>
-                        {/*<div style = { this.props.data.cover_url ? " paddingTop: '100%' " : ""}></div>*/}
+                        <div style = { this.props.data.cover_url.isPic == '' ?  {} : {paddingTop: '100%'} }></div>
                     </div>
                     <h3>{this.props.data.title}</h3>
                     <p>{this.props.data.desc}</p>
                 </div>
                 <div className="author">
-                    {/*<!-- react-text: 11 -->*/}
-                    by&nbsp;
-                    {/*<!-- /react-text -->*/}
-                    <span className="name">{this.props.data.name}</span>
+                    by&nbsp;<span className="name">{this.props.data.name}</span>
                 </div>
                 <span className="feed-label">{this.props.data.source_cn}</span>
             </a>
