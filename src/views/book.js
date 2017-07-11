@@ -9,7 +9,7 @@ class MyBook extends React.Component{
         return(
             <div className="page">
                 <header>
-                    MyBook
+                    ss
                 </header>
             </div>
         )
