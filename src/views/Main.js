@@ -1,4 +1,5 @@
 require('../lib/css/base.css');
+require('../styles/views/style.scss');
 require('../lib/js/initFontSize.min.js');
 
 /**
@@ -29,7 +30,7 @@ class AppComponent extends React.Component {
 				<Router history={history}>
 					<Route render={({ location }) => {
 						return(
-							<div key={location.pathname}>
+							<div key={location.pathname} className="page">
 								<Route location={location} exact path="/" component={MyIndex} />
 								<Route location={location} path="/MyMovie" component={MyMovie} />
 								<Route location={location} path="/MyBook" component={MyBook} />
