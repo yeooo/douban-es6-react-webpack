@@ -1,0 +1,21 @@
+/*
+*顶部标题组件样式
+*/
+.header-title{
+    padding: 0 1.12rem;
+    a {
+        float: right;
+        font-size: .9rem;
+        line-height: 1.5rem;
+    }
+    h2 {
+        display: inline-block;
+        min-width: 4em;
+        margin-bottom: 0;
+        font-size: 18px;
+        color: #111;
+        padding-left: 0;
+        padding-bottom: 0;
+        font-size: 1.06rem;
+    }
+}

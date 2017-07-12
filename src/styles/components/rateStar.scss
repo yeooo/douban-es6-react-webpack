@@ -1,0 +1,51 @@
+/*
+*评分星星组件样式
+*/
+.item-title {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-top: .6rem;
+    line-height: .94rem;
+}
+.item-rating {
+    color: #aaa;
+    line-height: .94rem;
+    margin-top: .3rem;
+    font-size: .72rem;
+    .rating-stars {
+        display: inline-block;
+        vertical-align: middle;
+        .rating-star {
+            display: inline-block;
+            margin-right: 1px;
+            background-color: transparent;
+            background-repeat: no-repeat;
+        }
+        .rating-star-small-full {
+            width: 10px;
+            height: 10px;
+            background-size: 10px 10px;
+            background-image: url('../../images/components/rateStar/star.png');
+        }
+        .rating-star-small-gray {
+            width: 10px;
+            height: 10px;
+            background-size: 10px 10px;
+            background-image: url('../../images/components/rateStar/gray.png');
+        }
+        .rating-star-medium-full {
+            width: 13px;
+            height: 13px;
+            background-size: 13px 13px;
+            background-image: url('../../images/components/rateStar/mStar.png');
+        }
+        .rating-star-medium-gray {
+            width: 13px;
+            height: 13px;
+            background-size: 13px 13px;
+            background-image: url('../../images/components/rateStar/mGray.png');
+        }
+    }
+}

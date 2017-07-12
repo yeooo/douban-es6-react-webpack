@@ -1,0 +1,8 @@
+section {
+    margin: 0;
+    overflow: hidden;
+    background-color: #fff;
+    &:first-child {
+        padding-top: 10px;
+    }
+}

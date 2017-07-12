@@ -1,0 +1,26 @@
+.item {
+    display: inline-block;
+    vertical-align: top;
+    width: 100px;
+    text-align: center;
+    >*{
+        font-size: .94rem;
+        white-space: normal;
+    }
+    a{
+        color: #111;
+    }
+    .item-poster {
+        width: 100%;
+        overflow: hidden;
+        background-size: cover;
+        background-position: center;
+    }
+    .item-title {
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        word-wrap: normal;
+    }
+}
