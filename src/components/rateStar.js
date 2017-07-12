@@ -15,28 +15,35 @@ class JudgePeople extends React.Component{
  */
 class RateStar extends React.Component{
     static defaultProps = {
-        starLength : 5//默认评分星星长度
+        starLength : 5,//默认评分星星长度
+        starStyle : 'small'
     }
     render(){
         let starFigurges = [],
             starkDatas =[],
+            yellowStarLength = parseInt(this.props.star),
             starYllowStyle = "rating-star " + "rating-star-"+this.props.starStyle+"-full",
             starGrayStyle = "rating-star " + "rating-star-"+this.props.starStyle+"-gray";
-            starkDatas.length = Number(this.props.star);
-        //黄色星星
-        for(var i = 0; i < starkDatas.length ;i++){
-            starFigurges.push(<span className={starYllowStyle} key={i}></span>);
+        
+        yellowStarLength = parseInt(this.props.star);
+        if(this.props.star){
+            //黄色星星
+            for(var i = 0; i < yellowStarLength ;i++){
+                starFigurges.push(<span className={starYllowStyle} key={i}></span>);
+            }
+            //灰色星星
+            for(var i = 0; i < Number(this.props.starLength) - yellowStarLength ;i++){
+                starFigurges.push(<span className={starGrayStyle} key={Number(this.props.starLength) - i}></span>);
+            }
+        }else{
+            starFigurges.push(<span key={99}>暂无评分</span>);
         }
-        //灰色星星
-        for(var i = 0; i < Number(this.props.starLength) - starkDatas.length ;i++){
-            console.log(Number(this.props.starLength) - starkDatas.length);
-            starFigurges.push(<span className={starGrayStyle} key={Number(this.props.starLength) - i}></span>);
-        }
+        
         return(
             <div className="item-rating">
                 <div className="rank">
                     <span className="rating-stars" data-rating={this.props.star}>
-                        {starFigurges}
+                         {starFigurges} 
                     </span>
                     <span>{this.props.rate}</span>
                      {this.props.judge ? <JudgePeople judge={this.props.judge}/> : ''} 

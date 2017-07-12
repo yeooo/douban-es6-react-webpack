@@ -3,6 +3,10 @@
     vertical-align: top;
     width: 100px;
     text-align: center;
+    margin-left: 0.48rem;
+    &:first-child {
+        margin-left: 1.12rem;
+    }
     >*{
         font-size: .94rem;
         white-space: normal;
@@ -15,6 +19,11 @@
         overflow: hidden;
         background-size: cover;
         background-position: center;
+        &:before{
+            content: "";
+            float: left;
+            margin-top: 142.85714%;
+        }
     }
     .item-title {
         max-width: 100%;

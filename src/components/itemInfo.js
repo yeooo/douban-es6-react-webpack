@@ -5,23 +5,40 @@ import React from 'react';
  * 引入组件
  */
 import HeaderTitle from '../components/headerTitle';
-import ItemList from '../components/itemList';
+import SingleItem from '../components/SingleItem';
+
+let itemInfoDatas = require('json!../data/movieData.json');
+/**
+ * 对来源数据进行二次封装
+ */
+itemInfoDatas = ((itemInfoDatasAtrr) => {
+	for (let i = 0, j = itemInfoDatasAtrr.length; i < j; i++) {
+		let singleItemInfoData = itemInfoDatasAtrr[i];
+
+        singleItemInfoData.title = singleItemInfoData.movieName;
+		itemInfoDatasAtrr[i] = singleItemInfoData;
+	}
+
+	return itemInfoDatasAtrr;
+
+})(itemInfoDatas);
+console.log(itemInfoDatas);
 /**
  * 列表信息
  */
-
 class ItemInfo extends React.Component{
     render(){
+        let itemFigur =[];
+            itemInfoDatas.forEach((value,index)=>{
+                itemFigur.push(<SingleItem data={value} key={index}/>);   
+            });
         return(
             <section>
                 <HeaderTitle headerText={this.props.headerText} headerUrl={this.props.headerUrl}/>
                 <div className="section-content">
                     <ul className="row items">
-                        <ItemList detailUrl={this.props.detailUrl} 
-                                  movieName={this.props.movieName} 
-                                  star={this.props.star} 
-                                  rate={this.props.rate}
-                                  starStyle={this.props.starStyle}/>
+                        {itemFigur}
+                        {/* <SingleItem data={this.props.data}/> */}
                     </ul>
                 </div>
             </section>
