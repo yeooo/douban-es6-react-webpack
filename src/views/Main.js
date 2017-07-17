@@ -1,6 +1,6 @@
 require('../lib/css/base.css');
 require('../styles/views/style.scss');
-require('../lib/js/initFontSize.min.js');
+// require('../lib/js/initFontSize.min.js');
 
 /**
  * 引入模块

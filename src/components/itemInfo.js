@@ -22,7 +22,6 @@ itemInfoDatas = ((itemInfoDatasAtrr) => {
 	return itemInfoDatasAtrr;
 
 })(itemInfoDatas);
-console.log(itemInfoDatas);
 /**
  * 列表信息
  */
