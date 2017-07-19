@@ -2,18 +2,10 @@ import React,{PropTypes} from 'react';
 import ItemInfo from '../../components/itemInfo';
 import template from '../../components/common/template.js';
 class MyMovie extends React.Component{
-    static propTypes = {
-        movieIndex:PropTypes.object.isRequired
-    }
-
-    static childContextTypes = {
-    }
-
-    constructor(props,context) {
-        super(props,context);
+    constructor(props) {
+        super(props);
         this.state = {
-            data:[],  //分销商列表数组
-            shouldUpdata:true //当获取数据后才能进行加载
+            data:[]  //分销商列表数组
         }
     }
 
@@ -24,11 +16,23 @@ class MyMovie extends React.Component{
             </div>
     )}
 
-    componentDidMount(){
+    // componentDidMount(){
+    //     $.ajax({
+    //          type: "GET",
+    //          url: "https://api.douban.com/v2/book/1220562",
+    //          data: {},
+    //          dataType: "json",
+    //          success: function(data){
+    //             alert(data);
+    //         }
+    //      });
         
-    }
+    // }
 }
-export default template({
-    id: 'movieIndex',  //应用关联使用的redux
-    component: MyMovie, //接收数据的组件入口
-    url: '/movie/in
+// export default template({
+//     id: 'movieIndex',  //应用关联使用的redux
+//     component: MyMovie, //接收数据的组件入口
+//     url: '/movie/in_theaters'
+// });
+
+export default MyMovie;

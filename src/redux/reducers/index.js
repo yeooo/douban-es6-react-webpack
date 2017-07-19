@@ -7,6 +7,7 @@ import {GET_DATA_START , GET_DATA_SUCCESS, TEST_DISPATCH} from '../actions/index
 
 
 const defaultlState = Immutable.fromJS({data: {}, isFetching: false})
+
 //首次渲染时获取数据
 export const fetchData = (state = defaultlState , action = {}) => {
     switch(action.type){
