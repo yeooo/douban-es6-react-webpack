@@ -14,12 +14,11 @@ const history = createHistory()
  * 引入组件
  */
 import Nav from '../components/Nav';
-import Home from '../views/home';
-import MyIndex from '../views/home';
-import MyMovie from '../views/Movie';
-import MyBook from '../views/book';
-import MyNetwork from '../views/network';
-import MyGroup from '../views/group';
+import MyIndex from '../views/home/home.js';
+import MyMovie from '../views/movie/movie.js';
+import MyBook from '../views/book/book.js';
+import MyNetwork from '../views/network/network.js';
+import MyGroup from '../views/group/group.js';
 
 class AppComponent extends React.Component {
   	render(){

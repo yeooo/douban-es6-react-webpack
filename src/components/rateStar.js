@@ -22,8 +22,8 @@ class RateStar extends React.Component{
         let starFigurges = [],
             starkDatas =[],
             yellowStarLength = parseInt(this.props.star),
-            starYllowStyle = "rating-star " + "rating-star-"+this.props.starStyle+"-full",
-            starGrayStyle = "rating-star " + "rating-star-"+this.props.starStyle+"-gray";
+            starYllowStyle = 'rating-star ' + 'rating-star-'+this.props.starStyle+'-full',
+            starGrayStyle = 'rating-star ' + 'rating-star'-+this.props.starStyle+'-gray';
         
         yellowStarLength = parseInt(this.props.star);
         if(this.props.star){
@@ -42,11 +42,11 @@ class RateStar extends React.Component{
         return(
             <div className="item-rating">
                 <div className="rank">
-                    <span className="rating-stars" data-rating={this.props.star}>
-                         {starFigurges} 
+                    <span className="rating-stars" data-rating={ this.props.star }>
+                         { starFigurges } 
                     </span>
-                    <span>{this.props.rate}</span>
-                     {this.props.judge ? <JudgePeople judge={this.props.judge}/> : ''} 
+                    <span>{ this.props.rate }</span>
+                     {this.props.judge ? <JudgePeople judge={ this.props.judge }/> : ''} 
                 </div>
             </div>
         )

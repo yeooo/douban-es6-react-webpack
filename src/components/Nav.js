@@ -2,7 +2,7 @@ require('../styles/components/Nav.scss');
 
 import React from 'react';
 import { HashRouter as Router, Link } from 'react-router-dom';
-import SearchPannel from '../views/search';
+import SearchPannel from '../views/search/search';
 
 class Nav extends React.Component{
     constructor(props) {
@@ -28,7 +28,7 @@ class Nav extends React.Component{
      */
     cancelSearchPannel(e){
         this.setState({
-            showPannel : '',
+            showPannel : ''
         });
         e.stopPropagation();
         e.preventDefault();
@@ -36,25 +36,21 @@ class Nav extends React.Component{
     render(){
         return(
             <div>
-                <header className="nav" ref = "nav">
-                    <div className="nav-con">
-                        <a href="javascript:;"><h1>豆瓣</h1></a>
+                <header className = "nav" ref = "nav">
+                    <div className = "nav-con">
+                        <a href = "javascript:;"><h1>豆瓣</h1></a>
                         <nav>
                             <ul>
-                                <li><a href="javascript:;" style={{color: '#2384E8'}}>电影</a></li>
+                                <li><a href = "javascript:;" style={{color: '#2384E8'}}>电影</a></li>
                                 <li><a href="javascript:;" style={{color: '#9F7860'}}>图书</a></li>
                                 <li><a href="javascript:;" style={{color: '#E4A813'}}>广播</a></li>
                                 <li><a href="javascript:;" style={{color: '#2AB8CC'}}>小组</a></li>
-                                {/*<li><Link to ="/MyMovie" style={{color: '#2384E8'}}>电影</Link></li>*/}
-                                {/*<li><Link to = "/search" style={{color: '#9F7860'}}>图书</Link></li>
-                                <li><Link to = "/search" style={{color: '#E4A813'}}>广播</Link></li>
-                                <li><Link to = "/search" style={{color: '#2AB8CC'}}>小组</Link></li>*/}
                                 <span onClick={ this.showResearchPannel }></span>
                             </ul>
                         </nav>
                     </div>
                 </header>
-                <SearchPannel showPannelClass={ this.state.showPannel } cancelSearchPannel = {this.cancelSearchPannel}/>
+                <SearchPannel showPannelClass = { this.state.showPannel } cancelSearchPannel = { this.cancelSearchPannel }/>
             </div>
     )}
 }
